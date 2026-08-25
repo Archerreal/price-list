@@ -24,10 +24,13 @@ h1{margin:0 0 8px}.muted{color:#aab6d2}.search{width:100%;padding:15px;margin-to
 </div>
 <script>
 const products=[
-{name:"اکانت Hetzner",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
-{name:"اکانت Linode",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
-{name:"اکانت Vultr",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
-{name:"اکانت DigitalOcean",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"}
+{name:"اکانت Hetzner No Tax",cat:"Cloud",price:"25$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Linode",cat:"Cloud",price:"13$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Vultr",cat:"Cloud",price:"15$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت OVH",cat:"Cloud",price:"18$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Gcore",cat:"Cloud",price:"15$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Up Cloud",cat:"Cloud",price:"19$",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت One Cloud",cat:"Cloud",price:"25$",desc:"اکانت و سرویس‌های مرتبط"}
 ];
 const grid=document.querySelector("#grid");
 function render(a){grid.innerHTML=a.map(p=>`<article class="card"><span class="badge">${p.cat}</span><div class="name">${p.name}</div><div class="desc">${p.desc}</div><div class="price">${p.price} <span class="unit">تومان</span></div></article>`).join("")}
