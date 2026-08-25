@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لیست قیمت</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#0b1020;color:#fff}
+.wrap{max-width:900px;margin:auto;padding:24px}.hero{background:linear-gradient(135deg,#182342,#10172d);padding:28px;border-radius:22px;border:1px solid #2b3a62;margin-bottom:20px}
+h1{margin:0 0 8px}.muted{color:#aab6d2}.search{width:100%;padding:15px;margin-top:18px;border-radius:12px;border:1px solid #334267;background:#0b1020;color:white;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:#121a30;border:1px solid #293759;border-radius:18px;padding:18px}
+.badge{display:inline-block;background:#202e50;color:#9bbcff;border-radius:99px;padding:5px 10px;font-size:11px}.name{font-size:18px;font-weight:bold;margin:12px 0 7px}.desc{color:#aab6d2;font-size:13px}.price{font-size:22px;font-weight:bold;margin-top:15px}.unit{font-size:12px;color:#9ca8c3}footer{text-align:center;color:#7683a2;padding:25px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>لیست قیمت</h1>
+<div class="muted">قیمت محصولات و سرویس‌ها</div>
+<input id="search" class="search" placeholder="جستجوی محصول یا سرویس...">
+</section>
+<div id="grid" class="grid"></div>
+<footer>آخرین بروزرسانی: <span id="date"></span></footer>
+</div>
+<script>
+const products=[
+{name:"اکانت Hetzner",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Linode",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت Vultr",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"},
+{name:"اکانت DigitalOcean",cat:"Cloud",price:"تماس بگیرید",desc:"اکانت و سرویس‌های مرتبط"}
+];
+const grid=document.querySelector("#grid");
+function render(a){grid.innerHTML=a.map(p=>`<article class="card"><span class="badge">${p.cat}</span><div class="name">${p.name}</div><div class="desc">${p.desc}</div><div class="price">${p.price} <span class="unit">تومان</span></div></article>`).join("")}
+document.querySelector("#search").oninput=e=>{let q=e.target.value.toLowerCase();render(products.filter(p=>(p.name+p.cat+p.desc).toLowerCase().includes(q)))};
+document.querySelector("#date").textContent=new Date().toLocaleDateString("fa-IR");render(products);
+</script>
+</body>
+</html>
